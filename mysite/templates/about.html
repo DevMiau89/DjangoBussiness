@@ -1,0 +1,54 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <!-- Container -->
+    <p>&nbsp<p>
+    <div class="container">
+          <div class="bg-faded p-4 my-4">
+            <hr class="divider">
+            <h2 class="text-center text-lg text-uppercase my-0">About
+              <strong> Purr Business</strong>
+            </h2>
+            <hr class="divider">
+            <div class="row">
+              <div class="col-lg-6">
+                <img class="img-fluid mb-4 mb-lg-0" src="/static/img/slide-2.jpg" alt="">
+              </div>
+              <div class="col-lg-6">
+                <p>The most impressive websites and app experiences are rooted in smart design, embody clear vision, and are backed by the right technology.</p>
+                <p>Best-in-class digital projects require technology that perfectly supports the design. We rely on the right tools for the job, not a one-size-fits-all tech stack.</p>
+                <p>How do your customers see you? How do you see yourself? We’re experts in deftly focusing, aligning and advancing those perceptions.</p>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="bg-faded p-4 my-4">
+            <hr class="divider">
+            <h2 class="text-center text-lg text-uppercase my-0">Our
+              <strong>Team</strong>
+            </h2>
+            <hr class="divider">
+            <div class="row">
+
+              <div class="col-md-4 mb-4 mb-md-0">
+                {% for employee in employee_list %}
+                <div class="card h-100">
+                  {% if employee.image %}
+                  <img class="card-img-top" src="{{ employee.image.url }}" width="333" height="159" alt="">
+                  {% endif %}
+                  <div class="card-body text-center">
+                    <h4 class="card-title m-0">{{ employee.full_name }}
+                      <small class="text-muted">{{ employee.job_title }}</small>
+                    </h4>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+    </div>
+    <!-- /.container -->
+{% endblock content %}
+

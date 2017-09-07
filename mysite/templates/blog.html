@@ -1,0 +1,42 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <!-- Container -->
+
+    <div class="container">
+     {% for post in post_list %}
+      <div class="bg-faded p-4 my-4">
+        <div class="card card-inverse">
+            {% if post.image %}
+          <img class="card-img img-fluid w-100" src="{{ post.image.url }}" alt="">
+            {% endif %}
+          <div class="card-img-overlay bg-overlay">
+            <h2 class="card-title text-shadow text-white text-uppercase mb-0">{{post.title}}</h2>
+            <h4 class="text-shadow text-white">{{post.timestamp}}</h4>
+            <p class="lead card-text text-shadow text-white w-50 d-none d-lg-block">{{post.content}}</p>
+            <a href="/blog/{{post.id}}" class="btn btn-secondary">Read More</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- Pagination -->
+      <div class="bg-faded p-4 my-4"><center>
+        <ul style="padding-bottom: 10px" class="pagination justify-content-center mb-0">
+          <li class="page-item">
+            {% if post_list.has_previous %}
+            <a class="page-link" href="?{{ page_request_var }}={{ post_list.previous_page_number }}">&larr; Newer</a>
+            {% endif %}
+          </li>
+          <li class="page-item">
+            {% if post_list.has_next %}
+            <a class="page-link" href="?{{ page_request_var }}={{ post_list.next_page_number }}">Older &rarr;</a>
+            {% endif %}
+          </li>
+        </ul>
+        </center>
+      </div>
+      <p>&nbsp;</p>
+    </div>
+    <!-- /.container -->
+{% endblock content %}

@@ -1,0 +1,138 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <!-- Container -->
+
+    <div class="container">
+
+      <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">Business Purr
+          <strong>Portfolio</strong>
+          <hr class="divider">
+        </h2>
+        <hr>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img class="img-fluid mb-4 mb-lg-0" src="/static/img/slide-2.jpg" alt="">
+          </div>
+          <div class="col-lg-6">
+            <br>
+            <p>We specialize in creating web designs that are functional, beautiful and target our client's audience. Over the years, we've had the opportunity to work with many different types of clients who represent a wide variety of small business models and that are located all across the United States, England, and Canada. We offer quality work, excellent support, and competitive rates. Here is a collection of some our work.  </p>
+          </div>
+        </div>
+      </div>
+
+     <!-- Featured Clients -->
+     <div class="bg-faded p-4 my-4">
+       <hr class="divider">
+          <h2 class="text-center text-lg text-uppercase my-0">
+            <strong>Industry</strong>
+          </h2>
+          <hr class="divider">
+          <hr>
+       <ul class="nav nav-pills row">
+          <li class="nav-item" >
+              <button type="button" class="btn">All</button>
+          </li>
+         <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="P2P">P2P Sales</button>
+          </li>
+           <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="Big Data">Big Data &amp; Analytics</button>
+          </li>
+          <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="Ticketing">Ticketing</button>
+          </li>
+          <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="Gambling">Gambling &amp; Casinos</button>
+          </li>
+          <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="Fintech">Fintech</button>
+          </li>
+          <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="Retail">Retail</button>
+          </li>
+          <p>&nbsp</p>
+          <li class="nav-item">
+              <button type="button" class="btn" id="Food">Food &amp; Beverages</button>
+          </li>
+          <p>&nbsp</p>
+          <li style="margin-top:10px;" class="nav-item">
+              <button type="button" class="btn" id="Marketing">Marketing and Advertising</button>
+          </li>
+          <p>&nbsp</p>
+          <li style="margin-top:10px;" class="nav-item">
+              <button type="button" class="btn" id="Media">Media</button>
+          </li>
+          <p>&nbsp</p>
+          <li style="margin-top:10px;" class="nav-item">
+              <button type="button" class="btn" id="Pharmaceuticals">Pharmaceuticals</button>
+          </li>
+          <p>&nbsp</p>
+          <li style="margin-top:10px;" class="nav-item">
+              <button type="button" class="btn" id="Transportation">Transportation</button>
+          </li>
+          <p>&nbsp</p>
+          <li style="margin-top:10px;" class="nav-item">
+              <button type="button" class="btn" id="Artificial">Artificial Intelligence</button>
+          </li>
+       </ul>
+    </div>
+
+      <div class="bg-faded p-4 my-4">
+          <hr class="divider">
+          <h2 class="text-center text-lg text-uppercsase my-0">Our
+            <strong>Projects</strong>
+          </h2>
+          <hr class="divider">
+          <hr>
+          <div class="row">
+            {% for port in portfolio_list %}
+            <div style="padding-bottom:10px" class="col-md-4 mb-4 mb-md-0">
+              <div name="{{ port.industry }}" class="card h-100">
+                <div class="card-body text-center">
+                  <h4 class="card-title m-0"> Featured In:
+                    <small class="text-muted">{{ port.title }}</small>
+                  </h4>
+                </div>
+                {% if port.image %}
+                <a href="/portfolio/{{port.name}}"><img class="card-img-top" src="{{ port.image.url }}" alt=""></a>
+                {% endif %}
+                <div >
+                  <h4 style="display:inline;float:left;margin-top:5px; margin-left:5px;">Industry:</h4><h4 style="margin-top:5px; margin-right:10px;" align="right">Country:</h4>
+                  <p style="display:inline;float:left;margin-left:5px;">{{ port.industry }}</p><p style ="margin-right:10px;" align="right">{{ port.country }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+      </div>
+    </div>
+      <!--&lt;!&ndash; Pagination &ndash;&gt;-->
+      <!--<div class="bg-faded p-4 my-4">-->
+        <!--<ul class="pagination justify-content-center mb-0">-->
+          <!--<li  class="page-item">-->
+            <!--{% if portfolio_list.has_previous %}-->
+            <!--<a style="align:center;" class="page-link" href="?{{ page_request_var }}={{ portfolio_list.previous_page_number }}">&larr; Newer</a>-->
+            <!--{% endif %}-->
+          <!--</li>-->
+          <!--<li class="page-item">-->
+            <!--{% if portfolio_list.has_next %}-->
+            <!--<a class="page-link" href="?{{ page_request_var }}={{ portfolio_list.next_page_number }}">Older &rarr;</a>-->
+            <!--{% endif %}-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!-- /.container -->
+
+{% endblock content %}
+

@@ -1,0 +1,26 @@
+{% extends "includes/base.html" %}
+
+{% block content %}
+    <!-- Container -->
+
+    <div class="container">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+          <div class="bg-faded p-4 my-4">
+            <div class="card card-inverse">
+                {% if instance.image %}
+              <img class="card-img img-fluid w-100" src="{{ instance.image.url }}" alt="">
+                {% endif %}
+              <div class="card-img-overlay bg-overlay">
+                <h2 class="card-title text-shadow text-white text-uppercase mb-0">{{instance.title}}</h2>
+                <h4 class="text-shadow text-white">{{instance.timestamp}}</h4>
+                <p class="lead card-text text-shadow text-white w-50 d-none d-lg-block">{{instance.country}}</p>
+                <h4 style="position:absolute; bottom:15px; right:50px;" class="text-shadow text-white">Country: <br>{{instance.country}}</h4>
+              </div>
+            </div>
+          </div>
+    </div>
+    <p>&nbsp;</p>
+    <!-- /.container -->
+{% endblock content %}
+
